@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cin >> num;
+
+    int temp = num;  // store original number
+    int sum = 0;
+
+    // First, sum the digits of the number
+    while (temp > 0) {
+        int digit = temp % 10;
+        sum = sum + digit;
+        temp /= 10;  // ✅ missing in your code
+    }
+
+    // Reduce sum to a single-digit
+    while (sum > 9) {
+        int s = 0;  // ✅ reset s for each iteration
+        int tempSum = sum;
+        while (tempSum > 0) {
+            s += tempSum % 10;
+            tempSum /= 10;
+        }
+        sum = s;  // update sum
+    }
+
+    // Check if the single-digit sum is 1
+    if (sum == 1) {
+        cout << "Magic no";
+    } else {
+        cout << "Not a magic no";
+    }
+
+    return 0;
+}
+
+
+123 → 1+2+3 = 6
+Output: Not a magic no
+19 → 1+9 = 10 → 1+0 = 1
+Output: Magic no
+
