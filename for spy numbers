@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+int sum(int num) {
+    int s=0;
+    while(num>0) {
+        int digit = num%10;
+        s = s + digit;
+        num /= 10;
+    }
+    return s;
+}
+int prod(int num) {
+    int p = 1;
+    while(num>0) {
+        int rem = num % 10;
+        p = p * rem;
+        num/=10;
+    }
+    return p;
+}
+int main() {
+    int num;
+    cin>>num;
+    int result = sum(num);
+    int res = prod(num);
+    if(result == res) {
+        cout<<"Hence the numbers are spy numbers";
+    }
+    else {
+        cout<<"Hence the numbers are not spy numbers";
+    }
+    return 0;
+}
+
+1124  // 1+1+2+4=8, 1×1×2×4=8
+1230  // 1+2+3+0=6, 1×2×3×0=0 → Not spy (has 0)
+1111  // 1+1+1+1=4, 1×1×1×1=1 → Not spy
+2222  // 2+2+2+2=8, 2×2×2×2=16 → Not spy
