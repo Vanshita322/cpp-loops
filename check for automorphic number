@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+int main() {
+    int num;
+    cin>>num;
+    int temp = num;
+    int sq;
+    bool flag = true;
+    sq = num * num;
+    while(temp>0) {
+        if(temp%10 != sq%10) {
+            flag = false;
+        }
+        temp/=10;
+        sq/=10;
+    }
+    if(flag) {
+        cout<<"automorphic no";
+    }
+    else {
+        cout<<"Not an automorphic no";
+    }
+    return 0;
+}
