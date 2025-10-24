@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+int fact(int num) {
+    int f= 1;
+    int i;
+    for(i=1;i<=num;i++) {
+        f = f * i;
+    }
+    return f;
+}
+int sum(int num) {
+    int sum = 0;
+    while(num>0) {
+        int rem = num % 10;
+        sum = sum + fact(rem);
+        num/=10;
+    }
+    return sum;
+}
+int main() {
+    int num;
+    cin>>num;
+    int temp = num;
+    int result = sum(num);
+    if(result == temp) {
+        cout<<"Strong no";
+    }
+    else {
+        cout<<"Not a strong no";
+    }
+    return 0;
+}
+
+Input: 145
+Output: Strong no
+
+Input: 123
+Output: Not a strong no
+
