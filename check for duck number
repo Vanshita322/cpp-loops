@@ -1,0 +1,72 @@
+#include<iostream>
+using namespace std;
+int main() {
+    int num;
+    cin>>num;
+    int temp = num;
+    int rev = 0;
+    bool flag = false;
+    while(temp>0) {
+        int digit = temp%10;
+        rev = rev * 10 + digit;
+        temp/=10;
+    }
+    int x;
+    x = rev % 10;
+    if(x !=0) {
+        flag = false;
+    }
+    temp = num;
+    while(temp>0) {
+        int rem = temp % 10;
+        if(rem == 0) {
+            flag = true;
+            break;
+        }
+        temp/=10;
+    }
+    if(flag == true) {
+        cout<<"Hence the number is a duck number";
+    }
+    else {
+        cout<<"Hence the number is not a duck number";
+    }
+    return 0;
+}
+
+
+
+other way
+#include<iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cin >> num;
+
+    int temp = num;
+    bool flag = false;
+
+    // Skip checking the first digit
+    int firstDigit = temp;
+    while (firstDigit >= 10) {
+        firstDigit /= 10;
+    }
+
+    // Only check for zeros after the first digit
+    while (temp > 0) {
+        int digit = temp % 10;
+        if (digit == 0 && firstDigit != 0) {
+            flag = true;
+            break;
+        }
+        temp /= 10;
+    }
+
+    if (flag)
+        cout << "Hence the number is a duck number";
+    else
+        cout << "Hence the number is not a duck number";
+
+    return 0;
+}
