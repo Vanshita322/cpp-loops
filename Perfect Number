@@ -22,3 +22,8 @@ int main() {
     
     return 0;
 }
+
+Enter a number: 6
+Divisors of 6: 1 2 3 
+Sum of divisors: 6
+6 is a Perfect Number.
